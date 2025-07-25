@@ -9,8 +9,11 @@ import { Button } from "@/components/ui/button";
 import { SignInButton, SignUpButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import UserBox from "@/components/shared/user-box";
 import Mobile from "@/components/shared/mobile";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="fixed inset-0 z-40 h-20 bg-background/70 backdrop-blur-xl">
       <div className="container mx-auto max-w-7xl h-full flex justify-between items-center border-b">
@@ -23,7 +26,7 @@ const Navbar = () => {
                 key={nav.route}
                 className="font-medium transition-all hover:text-blue-500 hover:underline"
               >
-                {nav.name}
+                {t(nav.name)}
               </Link>
             ))}
           </div>

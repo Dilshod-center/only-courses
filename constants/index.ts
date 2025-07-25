@@ -55,14 +55,14 @@ export const filterLevels = [
   { label: "level1", name: "all" },
   { label: "level2", name: "beginner" },
   { label: "level3", name: "intermediate" },
-  { label: "level4", name: "advanced" }, // <== TO‘G‘RILANDI
+  { label: "level4", name: "advanced" },
 ];
 
 export const categories = [
   { icon: "/assets/categories/digital-marketing.svg", label: "Digital Marketing" },
   { icon: "/assets/categories/web-development.svg", label: "Web Development" },
   { icon: "/assets/categories/graphic-design.png", label: "Graphic Design" },
-  { icon: "/assets/categories/photography.webp", label: "Photography" },
+  { icon: "/assets/categories/photography.png", label: "Photography" },
   { icon: "/assets/categories/social-sciences.svg", label: "Social Sciences" },
   { icon: "/assets/categories/arts-humanities.png", label: "Arts & Humanities" },
   { icon: "/assets/categories/personal-development.png", label: "Personal Development" },

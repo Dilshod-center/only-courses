@@ -8,22 +8,22 @@ function Categories() {
   const t = useTranslate();
 
   return (
-    <div className="container mx-auto max-w-6xl py-12">
-      <div className="flex flex-col space-y-1">
-        <h1 className="font-space-grotesk text-3xl font-bold">
+    <section className="px-4 py-12 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="mb-6 text-center md:text-left">
+        <h1 className="text-3xl font-bold font-space-grotesk text-primary">
           {t("topCategories")}
         </h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="mt-2 text-sm text-muted-foreground">
           {t("topCategoriesDescription")}
         </p>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {categories.map((category) => (
           <CategoryCard key={category.label} {...category} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

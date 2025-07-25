@@ -11,9 +11,9 @@ function Instructor() {
   const t = useTranslate();
 
   return (
-    <div className="container mx-auto max-w-6xl py-12">
-      <div className="flex items-center justify-between">
-        <div className="flex flex-col space-y-1">
+    <section className="container mx-auto max-w-6xl px-4 py-12">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
           <h1 className="font-space-grotesk text-3xl font-bold">
             {t("learnInstructors")}
           </h1>
@@ -22,30 +22,28 @@ function Instructor() {
           </p>
         </div>
 
-        <div className="flex items-center gap-1 self-end">
-          <Button variant={"secondary"}>
-            <span>{t("viewAll")}</span>
-            <MoveUpRight className="ml-2 size-5 font-bold" />
-          </Button>
-        </div>
+        <Button variant="secondary" className="w-max">
+          <span>{t("viewAll")}</span>
+          <MoveUpRight className="ml-2 size-5 font-bold" />
+        </Button>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {instructors.map((item) => (
-          <InstructorCard key={item.name} instructor={item} />
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {instructors.map((instructor) => (
+          <InstructorCard key={instructor.name} instructor={instructor} />
         ))}
       </div>
 
-      <div className="mt-6 text-center text-sm">
+      <div className="mt-10 text-center text-sm">
         {t("becomeInstructor1")}{" "}
         <Link
-          href={"/become-instructor"}
-          className="text-blue-500 underline hover:text-blue-600"
+          href="/become-instructor"
+          className="text-primary underline hover:text-primary/80"
         >
           {t("becomeInstructor2")}
         </Link>
       </div>
-    </div>
+    </section>
   );
 }
 

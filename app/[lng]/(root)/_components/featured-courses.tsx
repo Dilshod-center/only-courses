@@ -19,8 +19,8 @@ function FeaturedCourses() {
   const t = useTranslate();
 
   return (
-    <div className="container mx-auto max-w-6xl py-12">
-      <div className="flex items-center justify-between max-md:flex-col max-md:items-start">
+    <div className="container mx-auto max-w-7xl px-4 py-12">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-col space-y-1">
           <h1 className="font-space-grotesk text-3xl font-bold">
             {t("exploreCourses")}
@@ -30,13 +30,14 @@ function FeaturedCourses() {
           </p>
         </div>
 
-        <div className="flex items-center gap-1 self-end max-md:mt-4 max-md:w-full max-md:rounded-full max-md:bg-primary max-md:p-2">
+        <div className="flex flex-wrap gap-2 max-md:w-full max-md:justify-start">
           {filterCourses.map((item) => (
             <Button
               key={item.name}
               variant={filter === item.name ? "secondary" : "ghost"}
               className={cn(
-                "rounded-full font-medium max-md:w-full max-md:bg-secondary",
+                "rounded-full font-medium",
+                "max-md:flex-1 max-md:justify-center",
                 filter === item.name && "text-primary"
               )}
               onClick={() => setFilter(item.name)}
@@ -46,21 +47,17 @@ function FeaturedCourses() {
           ))}
         </div>
       </div>
-      <div className="mt-4 flex flex-col space-y-4 md:hidden">
+
+      <div className="mt-6 flex flex-col gap-4 md:hidden">
         {courses.map((course) => (
           <CourseCard key={course.title} course={course} />
         ))}
       </div>
-      <Carousel
-        opts={{ align: "start" }}
-        className="mt-6 hidden w-full md:flex"
-      >
-        <CarouselContent className="w-full">
+
+      <Carousel opts={{ align: "start" }} className="mt-8 hidden md:block">
+        <CarouselContent>
           {courses.map((course) => (
-            <CarouselItem
-              key={course.title}
-              className="md:basis-1/2 lg:basis-1/3"
-            >
+            <CarouselItem key={course.title} className="md:basis-1/2 lg:basis-1/3">
               <CourseCard course={course} />
             </CarouselItem>
           ))}

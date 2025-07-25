@@ -17,49 +17,56 @@ function Hero() {
 
   return (
     <>
-      <div className="content-center container mx-auto grid min-h-[80vh] max-w-6xl grid-cols-2 gap-8 max-md:grid-cols-1 max-md:pt-32">
-        <div className="flex flex-col space-y-4 self-center">
-          <h1 className="font-space-grotesk text-5xl font-bold">
+      <section className="container mx-auto max-w-6xl px-4 py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="flex flex-col gap-6 text-center lg:text-left">
+          <h1 className="text-4xl sm:text-5xl font-bold font-space-grotesk leading-tight">
             {t("heroTitle")}{" "}
             <span className="text-blue-500">{t("heroTitleSpan")}</span>
           </h1>
-          <p className="text-muted-foreground">{t("heroDescription")}</p>
-          <div className="flex gap-4">
-            <Link href={"/courses"}>
-              <Button variant={"outline"} size={"lg"} className="rounded-full">
+          <p className="text-muted-foreground text-base sm:text-lg">
+            {t("heroDescription")}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <Link href="/courses">
+              <Button variant="outline" size="lg" className="rounded-full w-full sm:w-auto">
                 {t("findCourses")}
               </Button>
             </Link>
-            <Link href={"/courses"}>
-              <Button size={"lg"} className="rounded-full">
+            <Link href="/courses">
+              <Button size="lg" className="rounded-full w-full sm:w-auto">
                 {t("blogs")}
               </Button>
             </Link>
           </div>
         </div>
 
-        <Image
-          src={"/assets/hero.png"}
-          alt="hero"
-          width={520}
-          height={520}
-          className="self-end object-cover"
-        />
-      </div>
+        <div className="flex justify-center lg:justify-end">
+          <Image
+            src="/assets/hero.png"
+            alt="hero"
+            width={500}
+            height={500}
+            priority
+            className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl object-contain"
+          />
+        </div>
+      </section>
 
-      <div className="w-full bg-secondary">
+      <div className="w-full bg-secondary py-6">
         <Carousel
           opts={{ align: "start", loop: true }}
-          className="container mx-auto w-full max-w-6xl"
+          className="container mx-auto w-full max-w-6xl px-4"
           plugins={[Autoplay({ delay: 2000 })]}
         >
           <CarouselContent>
             {companies.map((Icon, idx) => (
               <CarouselItem
                 key={idx}
-                className="basis-1/3 md:basis-1/4 lg:basis-1/6"
+                className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
               >
-                <Icon className="h-24 w-full text-muted-foreground" />
+                <div className="flex justify-center">
+                  <Icon className="h-16 sm:h-20 text-muted-foreground w-auto" />
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
